@@ -1,0 +1,65 @@
+git status
+# Create and switch to new branch
+git checkout -b GitWork
+
+# Create hello.xml file with content
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<message>
+    <greeting>Hello from GitWork branch</greeting>
+    <author>Branch Developer</author>
+</message>' > hello.xml
+  # Check current status
+git status
+
+# View the file content
+cat hello.xml
+# Add file to staging area
+git add hello.xml
+
+# Commit changes
+git commit -m "Add hello.xml to GitWork branch"
+git checkout master
+# Create hello.xml with different content in master
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<message>
+    <greeting>Hello from Master branch</greeting>
+    <author>Master Developer</author>
+    <timestamp>2025-08-10</timestamp>
+</message>' > hello.xml
+# Add and commit to master
+git add hello.xml
+git commit -m "Add hello.xml to master branch with different content"
+git log --oneline --graph --decorate --all
+# Compare the branches
+git diff master..GitWork
+
+# Or compare specific file
+git diff master..GitWork -- hello.xml
+git difftool master..GitWork
+git merge GitWork
+# Check status to see conflicted files
+git status
+
+# View the conflicted file
+cat hello.xml
+git mergetool
+# Add the resolved file
+git add hello.xml
+
+# Commit the merge
+git commit -m "Resolve merge conflict in hello.xml"
+# Check current status
+git status
+git add .gitignore
+git commit -m "Add .orig files to .gitignore"
+# List all branches
+git branch -a
+
+# List with last commit info
+git branch -v
+# Delete the GitWork branch
+git branch -d GitWork
+
+# Verify deletion
+git branch
+git log --oneline --graph --decorate

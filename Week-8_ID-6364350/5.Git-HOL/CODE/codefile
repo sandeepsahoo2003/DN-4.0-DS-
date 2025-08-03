@@ -1,0 +1,23 @@
+git status
+# List local branches
+git branch
+
+# List all branches (local and remote)
+git branch -a
+
+# List branches with last commit info
+git branch -v
+# Add remote origin (replace with your GitHub repo URL)
+git remote add origin https://github.com/your-username/your-repo-name.git
+
+# Verify remote connection
+git remote -v
+# View remote repository status
+git remote show origin
+
+# Check if local and remote are in sync
+git status
+
+# View commit history that was pushed
+git log --oneline --graph --decorate
+  

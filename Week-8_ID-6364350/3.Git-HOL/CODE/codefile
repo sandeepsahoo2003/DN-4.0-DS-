@@ -1,0 +1,23 @@
+#branching
+git branch GitNewBranch
+git branch -a
+git checkout GitNewBranch
+# Create a new file
+echo "This is content for the new branch" > branch-file.txt
+
+# Create another file
+echo "Additional content in GitNewBranch" > feature.txt
+
+# Add the files to staging area
+git add .
+git commit -m "Add new files to GitNewBranch"
+git status
+#merging
+git checkout master
+git diff master..GitNewBranch
+git difftool master..GitNewBranch
+git merge GitNewBranch
+git log --oneline --graph --decorate
+git branch -d GitNewBranch
+git status
+git branch -a

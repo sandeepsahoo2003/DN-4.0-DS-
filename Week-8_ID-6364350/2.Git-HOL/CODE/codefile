@@ -1,0 +1,50 @@
+cd /path/to/your/git/repository
+
+#create log files
+echo "This is a test log file" > test.log
+# Create the log directory
+mkdir log
+
+# Add some files inside the log folder
+echo "Application logs" > log/app.log
+echo "Error logs" > log/error.log
+echo "Debug information" > log/debug.txt
+
+git status
+
+# Create .gitignore file
+touch .gitignore
+
+# Open with notepad++ (Windows)
+notepad++ .gitignore
+
+# Ignore all .log files
+*.log
+
+# Ignore log folders
+log/
+
+git status
+# Add .gitignore to staging area
+git add .gitignore
+
+# Commit the .gitignore file
+git commit -m "Add .gitignore to ignore .log files and log folders"
+
+# Create another .log file
+echo "Another log file" > application.log
+
+# Create another file in log folder
+echo "More logs" > log/system.log
+
+# Check git status
+git status
+
+# Push to your remote repository
+git push origin main
+# or git push origin master (depending on your default branch)
+
+# Check what's tracked in local repo
+git ls-files
+
+# The .log files and log/ contents should NOT appear in this list

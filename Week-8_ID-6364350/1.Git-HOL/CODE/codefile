@@ -1,0 +1,74 @@
+# Git Hands-On Lab - Complete Command Sequence
+
+# Step 1: Git Configuration (run these first)
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "your.email@gmail.com"
+git config --list
+
+# Step 2: Editor Configuration (optional - use notepad if notepad++ doesn't work)
+git config --global core.editor "notepad++"
+
+# Step 3: Initialize Repository and Create File
+mkdir GitDemo
+cd GitDemo
+git init
+ls -la
+
+# Create the welcome.txt file
+echo "Welcome to Git Demo" > welcome.txt
+
+# Or create with multiple lines:
+echo "Welcome to Git Demo
+This is my first Git repository
+Learning Git commands" > welcome.txt
+
+# Verify file creation
+ls
+cat welcome.txt
+
+# Check Git status
+git status
+
+# Add file to staging area
+git add welcome.txt
+
+# Check status again
+git status
+
+# Commit the file
+git commit -m "Initial commit: Add welcome.txt file"
+
+# Check status after commit
+git status
+
+# Step 4: Connect to Remote Repository (after creating repo on GitHub)
+# Replace YOUR_USERNAME with your actual GitHub username
+git remote add origin https://github.com/YOUR_USERNAME/GitDemo.git
+
+# Check remote configuration
+git remote -v
+
+# Push to remote repository
+git push -u origin master
+
+# If using main branch instead of master:
+# git branch -M main
+# git push -u origin main
+
+# Additional useful commands for the lab:
+
+# View commit history
+git log
+
+# View commit history in one line
+git log --oneline
+
+# Check current branch
+git branch
+
+# Pull changes from remote (for future use)
+git pull origin master
+
+# Check differences (if you modify files later)
+git diff
